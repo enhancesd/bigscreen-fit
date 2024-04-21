@@ -1,6 +1,7 @@
 <template>
     <div class="app">
     <BsConfigProvider>
+
         <BigScreenFit>
             <template v-slot:default="{ customClass }">
             <div class="container">
@@ -71,12 +72,14 @@
         </template>
         </BigScreenFit>
     </BsConfigProvider>
+    <div class="dialog" v-scale-fit>
+            <p>这是一个APP模态对话框。使用了v-scale-fit指令</p>
+        </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { components, share } from '@enhances/bigscreen-fit';
-const { BigScreenFit, BsConfigProvider } = components;
+import {BigScreenFit, BsConfigProvider } from '@bigscreen-fit/components';
 
 import DemoBox from './comp/demo_box.vue';
 import CenterBox from './comp/center.vue';
@@ -100,6 +103,18 @@ body {
     height:1080px;
     display: flex;
     justify-content: space-between;
+}
+
+.dialog {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    background: #fff;
+    z-index: 99;
+    left: 50%;
+    top: 50%;
+    padding: 10px;
+    border-radius: 5px;
 }
 .left_container {
     position: absolute;

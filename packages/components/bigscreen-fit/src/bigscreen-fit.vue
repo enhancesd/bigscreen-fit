@@ -14,31 +14,32 @@ export interface PropsType {
     origin?: string;
     customScale?: string | 'auto';
     zIndex?: number;
+    cssTranslate?: string;
 }
 
 import { Ref, computed, inject, onMounted, shallowRef, watch } from 'vue-demi';
 import { BsConfigProviderInterface } from '../../bs-config-provider/src/types';
-import { useDesignValue, useBgsTransform, defaultDesign, useScreenResize } from './bigscreen-fit';
+import { useDesignValue, useBgsTransform, defaultDesign } from './bigscreen-fit';
 
 const bigscreenFitRef = shallowRef();
 const oldParentElement = shallowRef();
 const props = withDefaults(defineProps<PropsType>(), {
     designWidth: defaultDesign.width,
     designHeight: defaultDesign.height,
-    zoom: 1,
-    id: 'bigscreen-config-provid',
-    push: false,
-    compress: 'auto',
-    origin: 'left top',
-    customScale: 'auto',
-    zIndex: 1,
+    zoom: defaultDesign.zoom,
+    id: defaultDesign.id,
+    push: defaultDesign.push,
+    origin: defaultDesign.origin,
+    customScale: defaultDesign.customScale,
+    zIndex: defaultDesign.zIndex,
+    compress: defaultDesign.compress,
+    cssTranslate: defaultDesign.cssTranslate,
 });
 const bigscreenConfigProvid = inject<Ref<BsConfigProviderInterface>>(props.id, {
-    value: { isFullScreen: false, id: '', el: null },
+    value: { isFullScreen: false, id: '', el: null,  },
 } as Ref);
 
-const { win, updateWinOption } = useScreenResize();
-const bgsTransform = useBgsTransform(props, win, bigscreenConfigProvid);
+const bgsTransform = useBgsTransform(props, bigscreenConfigProvid);
 
 const customProperty = computed(() => {
     return {
@@ -84,9 +85,6 @@ onMounted(() => {
     watch(() => props.push,pushEffect);
 });
 
-defineExpose({
-    updateWinOption,
-});
 </script>
 <style lang="scss" scoped>
 @import '../style/index.scss';

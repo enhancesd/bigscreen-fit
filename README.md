@@ -9,6 +9,12 @@ interface PropsType {
     id?: string,
 }
 ```
+#### methods
+```ts
+declare function updateWinOption: (): void;
+
+```
+
 
 - code
 ### bigscreen-fit
@@ -26,11 +32,17 @@ interface PropsType {
     zIndex?: number;
 }
 ```
-#### methods
-```ts
-declare function updateWinOption: (): void;
 
+
+### 指令
+```ts
+import * as bigscreenFit from '@enhances/bigscreen-fit';
+//  指令推荐在弹窗下使用、组件请使用bigscreen-fit组件
+Vue.use(bigscreenFit.directive, {
+    compress: false, // 不压缩
+});
 ```
+
 #### share 
 ```ts
    declare function usResizeObjserver(el: Element, callback: (enter: Enters) => void): void  // 监听一个元素变化
@@ -57,6 +69,7 @@ const { BigScreenFit, BsConfigProvider } = components;
 <template>
     <div class="app">
     <BsConfigProvider>
+
         <BigScreenFit>
             <template v-slot:default="{ customClass }">
             <div class="container">
@@ -127,6 +140,9 @@ const { BigScreenFit, BsConfigProvider } = components;
         </template>
         </BigScreenFit>
     </BsConfigProvider>
+    <div class="dialog" v-scale-fit>
+            <p>这是一个APP模态对话框。使用了v-scale-fit指令</p>
+        </div>
     </div>
 </template>
 
@@ -156,6 +172,18 @@ body {
     height:1080px;
     display: flex;
     justify-content: space-between;
+}
+
+.dialog {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    background: #fff;
+    z-index: 99;
+    left: 50%;
+    top: 50%;
+    padding: 10px;
+    border-radius: 5px;
 }
 .left_container {
     position: absolute;
@@ -189,12 +217,11 @@ body {
     box-sizing: border-box;
     padding: 20px 0;
     margin-top: 110px;
-
+    border: 1px solid #fff;
 }
 .right_container {
     position: absolute;
     right: 20px;
 }
 </style>
-
 ```

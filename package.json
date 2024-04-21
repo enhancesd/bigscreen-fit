@@ -1,6 +1,6 @@
 {
   "name": "@enhances/bigscreen-fit",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "大屏适配方案、scale、可不压缩、不黑边、适配浏览器缩放、不同分辨率、提供全屏、退出全屏、判断全屏、提供缩放不同状态的classname",
   "main": "dist/esm/js/index.js",
   "scripts": {
@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "@bigscreen-fit/components": "workspace:^",
+    "@bigscreen-fit/directive": "workspace:^",
     "@efox/emp": "^2.7.1",
     "@efox/plugin-vue-2": "^1.2.3",
     "vue": "^2.7.16"

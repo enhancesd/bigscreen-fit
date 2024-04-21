@@ -20,6 +20,12 @@ importers:
         specifier: ^1.5.1
         version: 1.5.1
     devDependencies:
+      '@bigscreen-fit/components':
+        specifier: workspace:^
+        version: link:packages/components
+      '@bigscreen-fit/directive':
+        specifier: workspace:^
+        version: link:packages/directive
       '@efox/emp':
         specifier: ^2.7.1
         version: 2.7.1(patch_hash=5rk4vphbcl4uiypmzxt5nzde4i)(browserslist@4.23.0)(eslint@8.57.0)(vue-template-compiler@2.7.16)
@@ -35,6 +41,8 @@ importers:
       vue-demi:
         specifier: ^0.14.7
         version: 0.14.7(vue@2.7.16)
+
+  packages/directive: {}
 
 packages:
 

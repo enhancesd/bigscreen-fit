@@ -7,6 +7,7 @@
 import { onUnmounted, provide, ref } from 'vue-demi';
 import { BsConfigProviderInterface } from './types';
 import { onFullScreenChange, enterFullScreen, exitFullScreen, isFullScreen } from 'packages/share';
+import { useScreenResize } from './bs-config-provider';
 
 export interface PropsType {
     id?: string,
@@ -16,8 +17,16 @@ const props = withDefaults(defineProps<PropsType>(), {
 });
 
 const configProvider = ref<BsConfigProviderInterface>({
-    isFullScreen: false,
+    isFullScreen: isFullScreen(),
     ...(props),
+    win: {
+        innerHeight: 0,
+        innerWidth: 0
+    },
+});
+
+const { updateWinOption } = useScreenResize((win) => {
+    configProvider.value.win = win;
 });
 provide(props.id, configProvider);
 
@@ -33,7 +42,11 @@ onFullScreenChange((is) => {
 window.addEventListener('keyup', keyupHan);
 onUnmounted(() => {
     window.removeEventListener('keyup', keyupHan);
-})
+});
+
+defineExpose({
+    updateWinOption,
+});
 </script>
 <style lang="scss">
 html {
