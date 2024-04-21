@@ -69,11 +69,11 @@ export function useBgsTransform<
             'bs-no-fullscreen': !_isFullScreen,
         };
         function fixRationWith(width: number | string) {
-            if (_isFullScreen || _isCompress) {
+            let [x, y] = _scales;
+            if (_isFullScreen || _isCompress || x < y) {
                 return width;
             }
             width = typeof width === 'string' ? parseFloat(width) : width;
-            let [x, y] = _scales;
             return width * (x / y);
         }
         return {
