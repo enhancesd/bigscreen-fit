@@ -47,9 +47,9 @@ const customProperty = computed(() => {
         '--design-height': useDesignValue(props.designHeight),
         '--bgs-fit-transform': bgsTransform.value.fitTransform,
         '--origin': props.origin,
-        '--z-index': props.zIndex,
+        '--z-index': `${props.zIndex}`,
     }
-});
+}) as any;
 
 const customClass = computed(() => {
     return {

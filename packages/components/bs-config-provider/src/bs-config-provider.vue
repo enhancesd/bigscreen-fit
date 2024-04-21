@@ -20,8 +20,8 @@ const configProvider = ref<BsConfigProviderInterface>({
     isFullScreen: isFullScreen(),
     ...(props),
     win: {
-        innerHeight: 0,
-        innerWidth: 0
+        innerHeight: window.innerHeight,
+        innerWidth: window.innerWidth
     },
 });
 

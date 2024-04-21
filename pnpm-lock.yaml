@@ -32,6 +32,9 @@ importers:
       '@efox/plugin-vue-2':
         specifier: ^1.2.3
         version: 1.2.3(@babel/core@7.24.4)(css-loader@7.1.1)(lodash@4.17.21)(webpack@5.91.0)
+      '@enhances/bigscreen-fit':
+        specifier: ^0.0.7
+        version: 0.0.7
       vue:
         specifier: ^2.7.16
         version: 2.7.16
@@ -1778,6 +1781,13 @@ packages:
       - walrus
       - webpack
       - whiskers
+    dev: true
+
+  /@enhances/bigscreen-fit@0.0.7:
+    resolution: {integrity: sha512-yrRnGEzS9pkCvYsyWgkJhdjvks71upQFPAdW/9taQv3XgGw7+QjFvQDVjEyC8qftm9ceJiGzvWvZkENJ23YIKA==}
+    dependencies:
+      lodash: 4.17.21
+      resize-observer-polyfill: 1.5.1
     dev: true
 
   /@eslint-community/eslint-utils@4.4.0(eslint@8.57.0):
@@ -7249,7 +7259,6 @@ packages:
 
   /resize-observer-polyfill@1.5.1:
     resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}
-    dev: false
 
   /resolve-from@4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
