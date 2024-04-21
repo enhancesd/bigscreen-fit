@@ -47,8 +47,12 @@ const { BigScreenFit, BsConfigProvider } = components;
 
 ```
 
-- code
+
 ### demo code
+![alt text](image.png)
+![alt text](image-1.png)
+
+- code
 ```vue
 <template>
     <div class="app">
