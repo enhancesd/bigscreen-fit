@@ -1,0 +1,15 @@
+{
+  "name": "@bigscreen-fit/components",
+  "version": "1.0.0",
+  "description": "组件",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "components"
+  ],
+  "author": "meji",
+  "license": "ISC",
+  "dependencies": {
+    "vue-demi": "^0.14.7"
+  }
+}

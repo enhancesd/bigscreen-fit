@@ -1,0 +1,13 @@
+diff --git a/dist/dts/getVueTsService.js b/dist/dts/getVueTsService.js
+index 42ba66f9184b9d02b5ab3219416e1ce8ef08d353..dcbb26570bf2cee2c5e24cfb2c8651471dd8303a 100644
+--- a/dist/dts/getVueTsService.js
++++ b/dist/dts/getVueTsService.js
+@@ -20,7 +20,7 @@ function getVueTsService(options, cwd) {
+         options,
+         host,
+     });
+-    const service = program.__vue.languageService.__internal__.languageService;
++    const service = program.__vue.languageService;
+     cache.languageService = service;
+     return service;
+ }

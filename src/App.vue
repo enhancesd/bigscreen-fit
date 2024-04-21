@@ -1,55 +1,3 @@
-# bigscreen-fit
-大屏适配方案、scale、可不压缩、不黑边、适配浏览器缩放、不同分辨率、提供全屏、退出全屏、判断全屏、提供缩放不同状态的classname
-
-- code
-### bs-config-provider
-#### Props
-```ts
-interface PropsType {
-    id?: string,
-}
-```
-
-- code
-### bigscreen-fit
-#### Props
-```ts
-interface PropsType {
-    designWidth?: number;
-    designHeight?: number;
-    zoom?: number | ((isFullScreen: boolean) => number);
-    id?: string;
-    push?: boolean;
-    compress?: boolean | 'auto';
-    origin?: string;
-    customScale?: string | 'auto';
-    zIndex?: number;
-}
-```
-#### methods
-```ts
-declare function updateWinOption: (): void;
-
-```
-#### share 
-```ts
-   declare function usResizeObjserver(el: Element, callback: (enter: Enters) => void): void  // 监听一个元素变化
-   declare function onFullScreenChange(callback: (isFunllscreen: boolean) => void): void  // 监听全屏变化
-   declare function enterFullScreen() // 进入全屏
-   declare function exitFullScreen() // 退出全屏
-   declare function isFullScreen() //  是否全屏
-```
-
-### 组件引入方式
-```ts
-import { components, share } from '@enhances/bigscreen-fit';
-const { BigScreenFit, BsConfigProvider } = components;
-
-```
-
-- code
-### demo code
-```vue
 <template>
     <div class="app">
     <BsConfigProvider>
@@ -185,12 +133,10 @@ body {
     box-sizing: border-box;
     padding: 20px 0;
     margin-top: 110px;
-
+    border: 1px solid #fff;
 }
 .right_container {
     position: absolute;
     right: 20px;
 }
 </style>
-
-```

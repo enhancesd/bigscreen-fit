@@ -1,0 +1,15 @@
+.bigscreen_fit {
+    width: var(--design-width, 1920px);
+    height: var(--design-height, 1080px);
+    transform: var(--bgs-fit-transform);
+    transform-origin: var(--origin);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    box-sizing: border-box;
+    pointer-events: none;
+    z-index: var(--z-index);
+    &>div {
+        pointer-events: auto;
+    }
+}
