@@ -6,7 +6,7 @@
 <script setup lang="ts">
 import { onUnmounted, provide, ref } from 'vue-demi';
 import { BsConfigProviderInterface } from './types';
-import { onFullScreenChange, enterFullScreen, exitFullScreen, isFullScreen } from 'packages/share';
+import { onFullScreenChange, enterFullScreen, exitFullScreen, isFullScreen } from '@bigscreen-fit/share';
 import { useScreenResize } from './bs-config-provider';
 
 export interface PropsType {

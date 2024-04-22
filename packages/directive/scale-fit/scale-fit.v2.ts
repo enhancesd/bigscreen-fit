@@ -1,19 +1,34 @@
-import { DirectiveFunction, ref, watch, WatchStopHandle } from 'vue';
+import { DirectiveOptions, ref, watch, WatchStopHandle, VueConstructor } from 'vue';
 // @ts-ignore
 import lodashMerge from 'lodash/merge';
 import { ScaleFitOptions } from '../options';
 import { defaultDesign, useBgsTransform } from 'packages/components/bigscreen-fit/src/bigscreen-fit';
 import { useScreenResize } from 'packages/components/bs-config-provider/src/bs-config-provider';
 import { BsConfigProviderInterface } from 'packages/components/bs-config-provider/src/types';
+import { isVue3 } from '@bigscreen-fit/share';
 
-
-export function useScaleFitV2(options: ScaleFitOptions = {}): DirectiveFunction {
+export const directiveHooks = isVue3 ? {
+    bind: 'created',
+    beforeMount: 'beforeMount',
+    inserted: 'mounted',
+    beforeUpdate: 'beforeUpdate',
+    update: 'updated',
+    componentUpdated: 'updated',
+    unbind: 'unmounted',
+} : {
+    bind: 'bind',
+    inserted: 'inserted',
+    update: 'update',
+    componentUpdated: 'componentUpdated',
+    unbind: 'unbind',
+};
+export function useScaleFitV2(_Vue: VueConstructor, options: ScaleFitOptions = {}): DirectiveOptions {
     options = lodashMerge({}, defaultDesign, options);
     const _tempProvider = ref<BsConfigProviderInterface>({
         isFullScreen: false,
         win: {
-            innerHeight: 0,
-            innerWidth: 0
+            innerHeight: innerHeight,
+            innerWidth: innerWidth
         }
     });
     useScreenResize((win) => {
@@ -22,7 +37,7 @@ export function useScaleFitV2(options: ScaleFitOptions = {}): DirectiveFunction 
     const bgsTransform = useBgsTransform(options, _tempProvider);
 
     function updateEl(el: HTMLElement) {
-        el.style.setProperty('transform-origin', options.origin ?? '');
+        el.style.setProperty('transform-origin', options.origin ?? 'center center');
         el.style.setProperty('transform', `${bgsTransform.value.cssScale} ${options.cssTranslate}`);
         for (let key in bgsTransform.value.customClass) {
             if (bgsTransform.value.customClass.hasOwnProperty(key)) {
@@ -36,11 +51,18 @@ export function useScaleFitV2(options: ScaleFitOptions = {}): DirectiveFunction 
         }
     }
     let watchStopHandle: WatchStopHandle | null = null;
-    return function (el, binding, vnode, oldVnode) {
+    function restart(el: HTMLElement) {
         updateEl(el);
         watchStopHandle?.();
         watchStopHandle = watch(() => bgsTransform.value, () => {
             updateEl(el);
         });
+    }
+    return {
+        [directiveHooks.bind]: restart,
+        [directiveHooks.update]: restart,
+        [directiveHooks.unbind]: function () {
+            watchStopHandle?.();
+        }
     }
 }

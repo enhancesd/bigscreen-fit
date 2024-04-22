@@ -26,6 +26,9 @@ importers:
       '@bigscreen-fit/directive':
         specifier: workspace:^
         version: link:packages/directive
+      '@bigscreen-fit/share':
+        specifier: workspace:^
+        version: link:packages/share
       '@efox/emp':
         specifier: ^2.7.1
         version: 2.7.1(patch_hash=5rk4vphbcl4uiypmzxt5nzde4i)(browserslist@4.23.0)(eslint@8.57.0)(vue-template-compiler@2.7.16)
@@ -33,8 +36,8 @@ importers:
         specifier: ^1.2.3
         version: 1.2.3(@babel/core@7.24.4)(css-loader@7.1.1)(lodash@4.17.21)(webpack@5.91.0)
       '@enhances/bigscreen-fit':
-        specifier: ^0.0.7
-        version: 0.0.7
+        specifier: ^0.0.8
+        version: 0.0.8
       vue:
         specifier: ^2.7.16
         version: 2.7.16
@@ -46,6 +49,8 @@ importers:
         version: 0.14.7(vue@2.7.16)
 
   packages/directive: {}
+
+  packages/share: {}
 
 packages:
 
@@ -1783,8 +1788,8 @@ packages:
       - whiskers
     dev: true
 
-  /@enhances/bigscreen-fit@0.0.7:
-    resolution: {integrity: sha512-yrRnGEzS9pkCvYsyWgkJhdjvks71upQFPAdW/9taQv3XgGw7+QjFvQDVjEyC8qftm9ceJiGzvWvZkENJ23YIKA==}
+  /@enhances/bigscreen-fit@0.0.8:
+    resolution: {integrity: sha512-YDCvJ871Gc1Thx6A9Ok4pXHb+4DKxmJ+7PxEjSg0+Kto8jAg/i0cRR7DFwWq1sDvL9Sq/X0SXluCqegYy4kDIQ==}
     dependencies:
       lodash: 4.17.21
       resize-observer-polyfill: 1.5.1

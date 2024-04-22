@@ -4,6 +4,6 @@ import { ScaleFitOptions } from '../options';
 
 export default {
     install(_Vue: VueConstructor, options: ScaleFitOptions = {}) {
-        _Vue.directive('scale-fit', useScaleFitV2(options))
+        _Vue.directive('scale-fit', useScaleFitV2(_Vue, options))
     }
 } 

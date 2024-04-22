@@ -1,6 +1,6 @@
 import { Ref, computed } from "vue-demi";
 import { PropsType } from './bigscreen-fit.vue';
-import { BsConfigProviderInterface, WinType } from '../../bs-config-provider/src/types';
+import { BsConfigProviderInterface } from '../../bs-config-provider/src/types';
 
 
 export const defaultDesign = {

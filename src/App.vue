@@ -1,78 +1,77 @@
 <template>
     <div class="app">
-    <BsConfigProvider>
-
-        <BigScreenFit>
-            <template v-slot:default="{ customClass }">
-            <div class="container">
-                <div class="header">
+        <BsConfigProvider>
+            <BigScreenFit>
+                <template v-slot:default="{ customClass }">
+                <div class="container">
                     <BigScreenFit :z-index="2" :push="headPush" :custom-scale="headPush ? 'auto' : '1'">
-                        <div class="header__text">
-                            <button @click="headPush=!headPush">
-                                 {{ headPush ? '已优化': '点击优化头部压缩' }}  {{ customClass }}
-                            </button>
+                        <div class="header">
+                                <div class="header__text">
+                                    <button @click="headPush=!headPush">
+                                        {{ headPush ? '已优化': '点击优化头部压缩' }}  {{ customClass }}
+                                    </button>
+                                </div>
                         </div>
                     </BigScreenFit>
+                    <BigScreenFit :push="push" :custom-scale="push ? 'auto' : '1'">
+                        <template v-slot:default="{ customClass }">
+                            <div class="left_container flex-box">
+                            
+                                    <DemoBox :class="customClass">
+                                        <button @click="push=!push">
+                                        {{ push ? '已优化': '点击优化压缩' }}
+                                        </button>
+                                    </DemoBox>
+                                    <DemoBox :class="customClass">
+                                        <button @click="push=!push">
+                                        {{ push ? '已优化': '点击优化压缩' }}
+                                        </button>
+                                    </DemoBox>
+                                    <DemoBox :class="customClass">
+                                        <button @click="push=!push">
+                                        {{ push ? '已优化': '点击优化压缩' }}
+                                        </button>
+                                    </DemoBox>
+                                    <DemoBox :class="customClass">
+                                        <button @click="push=!push">
+                                        {{ push ? '已优化': '点击优化压缩' }}
+                                        </button>
+                                    </DemoBox>
+                            
+                            </div>
+                            <BigScreenFit :push="true">
+                                <CenterBox></CenterBox>
+                            </BigScreenFit>
+                            <div class="right_container flex-box">
+                                    <DemoBox :class="customClass">
+                                        <button @click="push=!push">
+                                        {{ push ? '已优化': '点击优化压缩' }}
+                                        </button>
+                                    </DemoBox>
+                                    <DemoBox :class="customClass">
+                                        <button @click="push=!push">
+                                        {{ push ? '已优化': '点击优化压缩' }}
+                                        </button>
+                                    </DemoBox>
+                                    <DemoBox :class="customClass">
+                                        <button @click="push=!push">
+                                        {{ push ? '已优化': '点击优化压缩' }}
+                                        </button>
+                                    </DemoBox>
+                                    <DemoBox :class="customClass">
+                                        <button @click="push=!push">
+                                        {{ push ? '已优化': '点击优化压缩' }}
+                                        </button>
+                                    </DemoBox>
+                            
+                            </div>
+                        </template>
+                    </BigScreenFit>
                 </div>
-                <BigScreenFit :push="push" :custom-scale="push ? 'auto' : '1'">
-                    <template v-slot:default="{ customClass }">
-                        <div class="left_container flex-box">
-                        
-                                <DemoBox :class="customClass">
-                                    <button @click="push=!push">
-                                    {{ push ? '已优化': '点击优化压缩' }}
-                                    </button>
-                                </DemoBox>
-                                <DemoBox :class="customClass">
-                                    <button @click="push=!push">
-                                    {{ push ? '已优化': '点击优化压缩' }}
-                                    </button>
-                                </DemoBox>
-                                <DemoBox :class="customClass">
-                                    <button @click="push=!push">
-                                    {{ push ? '已优化': '点击优化压缩' }}
-                                    </button>
-                                </DemoBox>
-                                <DemoBox :class="customClass">
-                                    <button @click="push=!push">
-                                    {{ push ? '已优化': '点击优化压缩' }}
-                                    </button>
-                                </DemoBox>
-                        
-                        </div>
-                        <BigScreenFit :push="true">
-                            <CenterBox></CenterBox>
-                        </BigScreenFit>
-                        <div class="right_container flex-box">
-                                <DemoBox :class="customClass">
-                                    <button @click="push=!push">
-                                    {{ push ? '已优化': '点击优化压缩' }}
-                                    </button>
-                                </DemoBox>
-                                <DemoBox :class="customClass">
-                                    <button @click="push=!push">
-                                    {{ push ? '已优化': '点击优化压缩' }}
-                                    </button>
-                                </DemoBox>
-                                <DemoBox :class="customClass">
-                                    <button @click="push=!push">
-                                    {{ push ? '已优化': '点击优化压缩' }}
-                                    </button>
-                                </DemoBox>
-                                <DemoBox :class="customClass">
-                                    <button @click="push=!push">
-                                    {{ push ? '已优化': '点击优化压缩' }}
-                                    </button>
-                                </DemoBox>
-                        
-                        </div>
-                    </template>
-                </BigScreenFit>
-            </div>
-        </template>
-        </BigScreenFit>
-    </BsConfigProvider>
-    <div class="dialog" v-scale-fit>
+            </template>
+            </BigScreenFit>
+        </BsConfigProvider>
+        <div class="dialog" v-scale-fit>
             <p>这是一个APP模态对话框。使用了v-scale-fit指令</p>
         </div>
     </div>
