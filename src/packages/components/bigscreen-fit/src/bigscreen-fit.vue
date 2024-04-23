@@ -17,7 +17,7 @@ export interface PropsType {
     cssTranslate?: string;
 }
 
-import { Ref, computed, inject, onMounted, shallowRef, watch, ref } from 'vue';
+import { Ref, computed, inject, onMounted, shallowRef, watch } from 'vue-demi';
 import { BsConfigProviderInterface } from '../../bs-config-provider/src/types';
 import { useDesignValue, useBgsTransform, defaultDesign } from './bigscreen-fit';
 
@@ -35,20 +35,21 @@ const props = withDefaults(defineProps<PropsType>(), {
     compress: defaultDesign.compress,
     cssTranslate: defaultDesign.cssTranslate,
 });
-const bigscreenConfigProvid = inject<Ref<BsConfigProviderInterface>>(props.id) ?? ref<BsConfigProviderInterface>({
-    isFullScreen: false,
-    id: '', el: null,
-    win: {
-        innerHeight: innerHeight,
-        innerWidth: innerWidth
-    }
+const bigscreenConfigProvid = inject(props.id, {
+    value: {
+        id: '',
+        isFullScreen: false,
+        win: {
+            innerHeight: innerHeight,
+            innerWidth: innerWidth
+        },
+    },
 });
-
-const bgsTransform = useBgsTransform(props, bigscreenConfigProvid);
+const bgsTransform = useBgsTransform(props, bigscreenConfigProvid as Ref<BsConfigProviderInterface>);
 
 const customProperty = computed(() => {
     return {
-        '--design-width': useDesignValue(bgsTransform.value.fixRationWith(props.designWidth)),
+        '--design-width': useDesignValue(bgsTransform?.value?.fixRationWith?.(props.designWidth) ?? props.designWidth),
         '--design-height': useDesignValue(props.designHeight),
         '--bgs-fit-transform': bgsTransform.value.fitTransform,
         '--origin': props.origin,
@@ -57,6 +58,7 @@ const customProperty = computed(() => {
 }) as any;
 
 const customClass = computed(() => {
+    if (!bgsTransform?.value) return {}
     return {
         ...bgsTransform.value.customClass,
     }
@@ -73,7 +75,7 @@ function resetMoutedEl() {
 }
 
 function pushEffect() {
-    const id = bigscreenConfigProvid.value.id;
+    const id = bigscreenConfigProvid?.value?.id;
     if (!props.push || !id || !bigscreenFitRef.value) {
         resetMoutedEl();
         return;

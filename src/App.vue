@@ -78,12 +78,10 @@
 </template>
 
 <script lang="ts" setup>
-import {BigScreenFit, BsConfigProvider } from 'packages/components';
-
 import DemoBox from './comp/demo_box.vue';
 import CenterBox from './comp/center.vue';
 
-import { ref } from 'vue';
+import { ref } from 'vue-demi';
 const push = ref(true);
 const headPush = ref(true);
 </script>

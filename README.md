@@ -1,7 +1,9 @@
 # bigscreen-fit
 大屏适配方案、scale、可不压缩、不黑边、适配浏览器缩放、不同分辨率、提供全屏、退出全屏、判断全屏、提供缩放不同状态的classname
 
-### Vue2
+## 支持
+- Vue版本 <= 2.7
+- webpack
 
 - 组件
 ### bs-config-provider
@@ -53,6 +55,17 @@ Vue.use(bigscreenFit.directive, {
    declare function exitFullScreen() // 退出全屏
    declare function isFullScreen() //  是否全屏
 ```
+
+### 注册方式一
+```ts
+import bigScreenFit from '@enhances/bigscreen-fit';
+
+Vue.use(bigScreenFit, {
+    compress: false, // 不压缩
+});
+
+```
+
 
 ### 组件引入方式
 ```ts
