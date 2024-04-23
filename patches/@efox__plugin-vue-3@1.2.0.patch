@@ -1,0 +1,21 @@
+diff --git a/dist/index.js b/dist/index.js
+index e2e489043845a5caedadc43870260346fd49c7ac..b1dbe3f8d5bd3568e6d0fe7fa4e6b533626cc379 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -14,16 +14,6 @@ const PluginBabelVue3 = ({ wpChain }) => {
+         .rule('scripts')
+         .use('babel')
+         .tap(o => {
+-        const typescriptIndex = o.presets.findIndex((plugin) => {
+-            return plugin === require.resolve('@babel/preset-typescript');
+-        });
+-        o.presets[typescriptIndex] = [
+-            require.resolve('@babel/preset-typescript'),
+-            {
+-                isTSX: true,
+-                allExtensions: true, // 支持所有文件扩展名
+-            },
+-        ];
+         o.plugins.push([require.resolve('@vue/babel-plugin-jsx'), { optimize: true }]);
+         return o;
+     });

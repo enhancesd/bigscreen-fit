@@ -1,4 +1,4 @@
-import { DirectiveOptions, ref, watch, WatchStopHandle, VueConstructor } from 'vue-demi';
+import { ObjectDirective, ref, watch, WatchStopHandle, App } from 'vue';
 // @ts-ignore
 import lodashMerge from 'lodash/merge';
 import { ScaleFitOptions } from '../options';
@@ -6,14 +6,7 @@ import { defaultDesign, useBgsTransform } from '../../components/bigscreen-fit/s
 import { useScreenResize } from '../../components/bs-config-provider/src/bs-config-provider';
 import { BsConfigProviderInterface } from '../../components/bs-config-provider/src/types';
 
-export const directiveHooks = {
-    bind: 'bind',
-    inserted: 'inserted',
-    update: 'update',
-    componentUpdated: 'componentUpdated',
-    unbind: 'unbind',
-}
-export function useScaleFitV2(_Vue: VueConstructor, options: ScaleFitOptions = {}): DirectiveOptions {
+export function useScaleFitV2(_Vue: App, options: ScaleFitOptions = {}): ObjectDirective {
     options = lodashMerge({}, defaultDesign, options);
     const _tempProvider = ref<BsConfigProviderInterface>({
         isFullScreen: false,
@@ -50,9 +43,9 @@ export function useScaleFitV2(_Vue: VueConstructor, options: ScaleFitOptions = {
         });
     }
     return {
-        [directiveHooks.bind]: restart,
-        [directiveHooks.update]: restart,
-        [directiveHooks.unbind]: function () {
+        created: restart,
+        updated: restart,
+        unmounted: function () {
             watchStopHandle?.();
         }
     }

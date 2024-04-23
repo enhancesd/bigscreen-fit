@@ -17,7 +17,7 @@ export interface PropsType {
     cssTranslate?: string;
 }
 
-import { Ref, computed, inject, onMounted, shallowRef, watch } from 'vue-demi';
+import { Ref, computed, inject, onMounted, shallowRef, watch } from 'vue';
 import { BsConfigProviderInterface } from '../../bs-config-provider/src/types';
 import { useDesignValue, useBgsTransform, defaultDesign } from './bigscreen-fit';
 
@@ -93,6 +93,3 @@ onMounted(() => {
 });
 
 </script>
-<style lang="scss" scoped>
-@import '../style/index.scss';
-</style>

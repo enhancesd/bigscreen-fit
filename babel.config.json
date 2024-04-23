@@ -6,8 +6,9 @@
         [
             "@babel/plugin-transform-typescript",
             {
-                "isTSX": true
-            }
+                "isTSX": true,
+                "allExtensions": true // 支持所有文件扩展名
+            },
         ]
     ]
 }

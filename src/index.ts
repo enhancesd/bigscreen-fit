@@ -1,4 +1,4 @@
-import { VueConstructor } from 'vue-demi';
+import { App } from 'vue';
 
 import {
     components,
@@ -13,7 +13,8 @@ export {
     directive,
 }
 export default {
-    install(Vue: VueConstructor, options: ScaleFitOptions = {}) {
+    install(Vue: App, options: ScaleFitOptions = {}) {
+        require('./style/index.css');
         directive.default.install(Vue, options);
         Object.entries(components).forEach(item => {
             Vue.component(item[0], item[1]);

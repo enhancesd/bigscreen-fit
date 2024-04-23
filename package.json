@@ -1,7 +1,7 @@
 {
-  "name": "@enhances/bigscreen-fit",
-  "version": "0.1.2",
-  "description": "大屏适配方案、scale、可不压缩、不黑边、适配浏览器缩放、不同分辨率、提供全屏、退出全屏、判断全屏、提供缩放不同状态的classname",
+  "name": "@enhances/bigscreen-fit-vue3",
+  "version": "0.2.2",
+  "description": "Vue3 大屏适配方案、scale、可不压缩、不黑边、适配浏览器缩放、不同分辨率、提供全屏、退出全屏、判断全屏、提供缩放不同状态的classname",
   "main": "dist/esm/js/index.js",
   "scripts": {
     "dev": "emp dev --env dev",
@@ -15,6 +15,7 @@
     "大屏适配",
     "vue",
     "scale",
+    "Vue3",
     "适配浏览器缩放",
     "分辨率"
   ],
@@ -34,17 +35,18 @@
   },
   "devDependencies": {
     "@efox/emp": "^2.7.1",
-    "@efox/plugin-vue-2": "^1.2.3",
-    "vue": "^2.7.16"
+    "@efox/plugin-vue-3": "^1.2.0",
+    "@vue/runtime-dom": "^3.4.24",
+    "vue": "^3.4.24"
   },
   "pnpm": {
     "patchedDependencies": {
-      "@efox/emp@2.7.1": "patches/@efox__emp@2.7.1.patch"
+      "@efox/emp@2.7.1": "patches/@efox__emp@2.7.1.patch",
+      "@efox/plugin-vue-3@1.2.0": "patches/@efox__plugin-vue-3@1.2.0.patch"
     }
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "resize-observer-polyfill": "^1.5.1",
-    "vue-demi": "^0.14.7"
+    "resize-observer-polyfill": "^1.5.1"
   }
 }

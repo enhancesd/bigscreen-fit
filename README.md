@@ -2,8 +2,13 @@
 大屏适配方案、scale、可不压缩、不黑边、适配浏览器缩放、不同分辨率、提供全屏、退出全屏、判断全屏、提供缩放不同状态的classname
 
 ## 支持
-- Vue版本 <= 2.7
+- Vue版本 >= 3
 - webpack
+
+### 支持 Vue2 请前往 [@enhances/bigscreen-fit](https://www.npmjs.com/package/@enhances/bigscreen-fit)
+```shell
+npm i @enhances/bigscreen-fit
+```
 
 - 组件
 ### bs-config-provider
@@ -40,7 +45,7 @@ interface PropsType {
 
 ### 指令
 ```ts
-import * as bigscreenFit from '@enhances/bigscreen-fit';
+import * as bigscreenFit from '@enhances/bigscreen-fit-vue3';
 //  指令推荐在弹窗下使用、组件请使用bigscreen-fit组件
 Vue.use(bigscreenFit.directive, {
     compress: false, // 不压缩
@@ -58,7 +63,7 @@ Vue.use(bigscreenFit.directive, {
 
 ### 注册方式一
 ```ts
-import bigScreenFit from '@enhances/bigscreen-fit';
+import bigScreenFit from '@enhances/bigscreen-fit-vue3';
 
 Vue.use(bigScreenFit, {
     compress: false, // 不压缩
@@ -67,9 +72,9 @@ Vue.use(bigScreenFit, {
 ```
 
 
-### 组件引入方式
+### 组件引入方式二
 ```ts
-import { components, share } from '@enhances/bigscreen-fit';
+import { components, share } from '@enhances/bigscreen-fit-vue3';
 const { BigScreenFit, BsConfigProvider } = components;
 
 ```

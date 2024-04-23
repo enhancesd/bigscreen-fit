@@ -1,4 +1,4 @@
-import { ref, nextTick } from 'vue-demi';
+import { ref, nextTick } from 'vue';
 // @ts-ignore
 import debounce from 'lodash/debounce';
 import { WinType } from './types';

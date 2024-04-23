@@ -1,5 +1,5 @@
 const { defineConfig } = require('@efox/emp');
-const vue = require('@efox/plugin-vue-2');
+const vue = require('@efox/plugin-vue-3');
 const path = require('path');
 
 module.exports = defineConfig(({ env }) => {
@@ -26,6 +26,7 @@ module.exports = defineConfig(({ env }) => {
                     vue: 'vue',
                     lodash: 'lodash',
                     'vue-demi': 'vue-demi',
+                    '@vue/runtime-dom': '@vue/runtime-dom',
                     'resize-observer-polyfill': 'resize-observer-polyfill',
                 }
             }

@@ -1,4 +1,4 @@
-import { Ref, computed } from "vue-demi";
+import { Ref, computed } from "vue";
 import { PropsType } from './bigscreen-fit.vue';
 import { BsConfigProviderInterface } from '../../bs-config-provider/src/types';
 

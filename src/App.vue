@@ -81,7 +81,7 @@
 import DemoBox from './comp/demo_box.vue';
 import CenterBox from './comp/center.vue';
 
-import { ref } from 'vue-demi';
+import { ref } from 'vue';
 const push = ref(true);
 const headPush = ref(true);
 </script>
