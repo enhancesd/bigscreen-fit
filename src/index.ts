@@ -13,7 +13,7 @@ export {
     directive,
 }
 export default {
-    install(Vue: VueConstructor, options: ScaleFitOptions = {}) {
+    install(Vue: VueConstructor, options?: ScaleFitOptions) {
         directive.default.install(Vue, options);
         Object.entries(components).forEach(item => {
             Vue.component(item[0], item[1]);

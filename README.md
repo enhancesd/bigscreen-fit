@@ -3,11 +3,11 @@
 
 ## 支持
 - Vue版本 <= 2.7
-- webpack
 
 ### 支持 Vue3 前往 [@enhances/bigscreen-fit-vue3](https://www.npmjs.com/package/@enhances/bigscreen-fit-vue3)
+- or install
 ```shell
-npm i @enhances/bigscreen-fit
+npm i @enhances/bigscreen-fit-vue3
 ```
 
 - 组件

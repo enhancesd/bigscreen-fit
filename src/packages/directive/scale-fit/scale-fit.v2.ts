@@ -13,7 +13,12 @@ export const directiveHooks = {
     componentUpdated: 'componentUpdated',
     unbind: 'unbind',
 }
-export function useScaleFitV2(_Vue: VueConstructor, options: ScaleFitOptions = {}): DirectiveOptions {
+export function useScaleFitV2(_Vue: VueConstructor, options: ScaleFitOptions = {
+    designWidth: defaultDesign.width,
+    designHeight: defaultDesign.height,
+    id: defaultDesign.id,
+    zIndex: defaultDesign.zIndex
+}): DirectiveOptions {
     options = lodashMerge({}, defaultDesign, options);
     const _tempProvider = ref<BsConfigProviderInterface>({
         isFullScreen: false,

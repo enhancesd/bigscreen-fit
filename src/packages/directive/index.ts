@@ -6,7 +6,7 @@ export {
     ScaleFit,
 }
 export default {
-    install(_Vue: VueConstructor, options: ScaleFitOptions = {}) {
+    install(_Vue: VueConstructor, options?: ScaleFitOptions) {
         ScaleFit.install(_Vue, options);
     }
 }
