@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import App from './App.vue';
-import bigsDirective from '@bigscreen-fit/directive';
+import bigsDirective from 'packages/directive';
 
 Vue.use(bigsDirective, {
     compress: false, // 不压缩

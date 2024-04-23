@@ -17,7 +17,7 @@ export interface PropsType {
     cssTranslate?: string;
 }
 
-import { Ref, computed, inject, onMounted, shallowRef, watch } from 'vue-demi';
+import { Ref, computed, inject, onMounted, shallowRef, watch, ref } from 'vue';
 import { BsConfigProviderInterface } from '../../bs-config-provider/src/types';
 import { useDesignValue, useBgsTransform, defaultDesign } from './bigscreen-fit';
 
@@ -35,9 +35,14 @@ const props = withDefaults(defineProps<PropsType>(), {
     compress: defaultDesign.compress,
     cssTranslate: defaultDesign.cssTranslate,
 });
-const bigscreenConfigProvid = inject<Ref<BsConfigProviderInterface>>(props.id, {
-    value: { isFullScreen: false, id: '', el: null,  },
-} as Ref);
+const bigscreenConfigProvid = inject<Ref<BsConfigProviderInterface>>(props.id) ?? ref<BsConfigProviderInterface>({
+    isFullScreen: false,
+    id: '', el: null,
+    win: {
+        innerHeight: innerHeight,
+        innerWidth: innerWidth
+    }
+});
 
 const bgsTransform = useBgsTransform(props, bigscreenConfigProvid);
 
@@ -58,23 +63,23 @@ const customClass = computed(() => {
 })
 
 function resetMoutedEl() {
-    if(!bigscreenFitRef.value || !oldParentElement.value) {
+    if (!bigscreenFitRef.value || !oldParentElement.value) {
         return;
     }
     const iscontains = oldParentElement.value?.contains?.(bigscreenFitRef.value);
-    if(!iscontains) {
+    if (!iscontains) {
         oldParentElement.value.appendChild(bigscreenFitRef.value);
     }
 }
 
 function pushEffect() {
     const id = bigscreenConfigProvid.value.id;
-    if(!props.push || !id || !bigscreenFitRef.value) {
+    if (!props.push || !id || !bigscreenFitRef.value) {
         resetMoutedEl();
         return;
     }
     const bigscreenProvidElement = document.querySelector(`#${id}`);
-    if(!bigscreenProvidElement) {
+    if (!bigscreenProvidElement) {
         return;
     }
     bigscreenProvidElement.appendChild(bigscreenFitRef.value);
@@ -82,7 +87,7 @@ function pushEffect() {
 onMounted(() => {
     oldParentElement.value = bigscreenFitRef.value.parentNode;
     pushEffect();
-    watch(() => props.push,pushEffect);
+    watch(() => props.push, pushEffect);
 });
 
 </script>

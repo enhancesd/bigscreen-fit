@@ -4,9 +4,9 @@
    </div>
 </template>
 <script setup lang="ts">
-import { onUnmounted, provide, ref } from 'vue-demi';
+import { onUnmounted, provide, ref } from 'vue';
 import { BsConfigProviderInterface } from './types';
-import { onFullScreenChange, enterFullScreen, exitFullScreen, isFullScreen } from '@bigscreen-fit/share';
+import { onFullScreenChange, enterFullScreen, exitFullScreen, isFullScreen } from '../../../share';
 import { useScreenResize } from './bs-config-provider';
 
 export interface PropsType {

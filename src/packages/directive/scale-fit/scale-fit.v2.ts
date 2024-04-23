@@ -2,26 +2,17 @@ import { DirectiveOptions, ref, watch, WatchStopHandle, VueConstructor } from 'v
 // @ts-ignore
 import lodashMerge from 'lodash/merge';
 import { ScaleFitOptions } from '../options';
-import { defaultDesign, useBgsTransform } from 'packages/components/bigscreen-fit/src/bigscreen-fit';
-import { useScreenResize } from 'packages/components/bs-config-provider/src/bs-config-provider';
-import { BsConfigProviderInterface } from 'packages/components/bs-config-provider/src/types';
-import { isVue3 } from '@bigscreen-fit/share';
+import { defaultDesign, useBgsTransform } from '../../components/bigscreen-fit/src/bigscreen-fit';
+import { useScreenResize } from '../../components/bs-config-provider/src/bs-config-provider';
+import { BsConfigProviderInterface } from '../../components/bs-config-provider/src/types';
 
-export const directiveHooks = isVue3 ? {
-    bind: 'created',
-    beforeMount: 'beforeMount',
-    inserted: 'mounted',
-    beforeUpdate: 'beforeUpdate',
-    update: 'updated',
-    componentUpdated: 'updated',
-    unbind: 'unmounted',
-} : {
+export const directiveHooks = {
     bind: 'bind',
     inserted: 'inserted',
     update: 'update',
     componentUpdated: 'componentUpdated',
     unbind: 'unbind',
-};
+}
 export function useScaleFitV2(_Vue: VueConstructor, options: ScaleFitOptions = {}): DirectiveOptions {
     options = lodashMerge({}, defaultDesign, options);
     const _tempProvider = ref<BsConfigProviderInterface>({

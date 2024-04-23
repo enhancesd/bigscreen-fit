@@ -78,7 +78,7 @@
 </template>
 
 <script lang="ts" setup>
-import {BigScreenFit, BsConfigProvider } from '@bigscreen-fit/components';
+import {BigScreenFit, BsConfigProvider } from 'packages/components';
 
 import DemoBox from './comp/demo_box.vue';
 import CenterBox from './comp/center.vue';
