@@ -22,6 +22,12 @@ module.exports = defineConfig(({ env }) => {
                 entry: 'index.ts',
                 fileName: 'js/index.js',
                 formats: ['esm'],
+                external: {
+                    vue: 'vue',
+                    lodash: 'lodash',
+                    'vue-demi': 'vue-demi',
+                    'resize-observer-polyfill': 'resize-observer-polyfill',
+                }
             }
         }
     }

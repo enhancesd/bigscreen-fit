@@ -1,4 +1,4 @@
-import { Ref, computed } from "vue";
+import { Ref, computed } from "vue-demi";
 import { PropsType } from './bigscreen-fit.vue';
 import { BsConfigProviderInterface } from '../../bs-config-provider/src/types';
 
@@ -28,8 +28,7 @@ export function useDesignValue(val: string | number, unit = 'px') {
 
 export function useBgsTransform<
     T extends PropsType,
-    P extends Ref<BsConfigProviderInterface>
->(props: T, bigscreenConfigProvid: P) {
+>(props: T, bigscreenConfigProvid: Ref<BsConfigProviderInterface>) {
     return computed(() => {
         const x = bigscreenConfigProvid.value.win.innerWidth / (props.designWidth ?? defaultDesign.width);
         const y = bigscreenConfigProvid.value.win.innerHeight / (props.designHeight ?? defaultDesign.height);

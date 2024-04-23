@@ -1,4 +1,4 @@
-import { DirectiveOptions, ref, watch, WatchStopHandle, VueConstructor } from 'vue';
+import { DirectiveOptions, ref, watch, WatchStopHandle, VueConstructor } from 'vue-demi';
 // @ts-ignore
 import lodashMerge from 'lodash/merge';
 import { ScaleFitOptions } from '../options';

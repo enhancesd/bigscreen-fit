@@ -1,11 +1,12 @@
 {
   "name": "@enhances/bigscreen-fit",
-  "version": "0.0.17",
-  "description": "大屏适配方案、scale、可不压缩、不黑边、适配浏览器缩放、不同分辨率、提供全屏、退出全屏、判断全屏、提供缩放不同状态的classname",
+  "version": "0.2.4",
+  "description": "Vue2 大屏适配方案、scale、可不压缩、不黑边、适配浏览器缩放、不同分辨率、提供全屏、退出全屏、判断全屏、提供缩放不同状态的classname",
   "main": "dist/esm/js/index.js",
   "scripts": {
     "dev": "emp dev --env dev",
     "dts": "emp dts",
+    "build": "emp build --env prod",
     "build:ts": "emp build --env prod -t",
     "publish:prod": "pnpm build:ts && npm publish"
   },
@@ -34,8 +35,6 @@
   "devDependencies": {
     "@efox/emp": "^2.7.1",
     "@efox/plugin-vue-2": "^1.2.3",
-    "@efox/plugin-vue-3": "^1.2.0",
-    "@vue/runtime-dom": "^3.4.24",
     "vue": "^2.7.16"
   },
   "pnpm": {
@@ -45,6 +44,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "resize-observer-polyfill": "^1.5.1"
+    "resize-observer-polyfill": "^1.5.1",
+    "vue-demi": "^0.14.7"
   }
 }

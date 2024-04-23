@@ -4,7 +4,7 @@
    </div>
 </template>
 <script setup lang="ts">
-import { onUnmounted, provide, ref } from 'vue';
+import { onUnmounted, provide, ref } from 'vue-demi';
 import { BsConfigProviderInterface } from './types';
 import { onFullScreenChange, enterFullScreen, exitFullScreen, isFullScreen } from '../../../share';
 import { useScreenResize } from './bs-config-provider';
@@ -28,6 +28,7 @@ const configProvider = ref<BsConfigProviderInterface>({
 const { updateWinOption } = useScreenResize((win) => {
     configProvider.value.win = win;
 });
+
 provide(props.id, configProvider);
 
 

@@ -1,4 +1,4 @@
-import { VueConstructor } from 'vue';
+import { VueConstructor } from 'vue-demi';
 import { useScaleFitV2 } from './scale-fit.v2';
 import { ScaleFitOptions } from '../options';
 
