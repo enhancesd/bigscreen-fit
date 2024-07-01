@@ -1,5 +1,7 @@
 # bigscreen-fit
 大屏适配方案、scale、可不压缩、不黑边、适配浏览器缩放、不同分辨率、提供全屏、退出全屏、判断全屏、提供缩放不同状态的classname
+- ![image-1](https://github.com/enhancesd/bigscreen-fit/assets/67493191/70932d87-e5d7-4a07-af50-5910121022e5)
+
 
 ## 支持
 - Vue版本 <= 2.7
